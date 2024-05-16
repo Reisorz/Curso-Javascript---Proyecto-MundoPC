@@ -1,5 +1,5 @@
 class DispositivoEntrada {
-
+    //Esto es un comentario
     constructor(tipoEntrada, marca){
 
         this._tipoEntrada = tipoEntrada;
