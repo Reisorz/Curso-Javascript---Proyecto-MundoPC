@@ -1,5 +1,5 @@
 class DispositivoEntrada {
-    //Esto es un comentario
+    
     constructor(tipoEntrada, marca){
 
         this._tipoEntrada = tipoEntrada;
@@ -147,12 +147,46 @@ class Computadora {
         return `Computadora ${this._idComputadora}: ${this._nombre}
         ${this._monitor.toString()}
         ${this._teclado.toString()}
-        ${this._raton.toString()}`
+        ${this._raton.toString()}\n`
     }
 }
 
+class Orden {
+
+    static contadorOrdenes = 0;
+
+    constructor () {
+
+        this._idOrden = ++Orden.contadorOrdenes;
+        this._computadoras = [];
+    }
+
+    get idOrden() {
+
+        return this._idOrden 
+
+    }
+
+    agregarComputadora (computadora){
+        
+        this._computadoras.push(computadora);
+
+    }
+
+    toString() {
+        return `Orden nº${this._idOrden}: \n ${this._computadoras.toString()}`
+    }
+}
+
+
+
+
+
+
 let raton1 = new Raton ("USB", "HP");
 let raton2 = new Raton ("Bluetooth", "Dell");
+
+console.log(raton1.idRaton);
 
 console.log(raton1.toString());
 console.log(raton2.toString());
@@ -170,8 +204,26 @@ console.log(monitor1.toString());
 console.log(monitor2.toString());
 
 let computadora1 = new Computadora ("Workstation 2000", monitor2, teclado1, raton2);
+let computadora2 = new Computadora ("Mountain", monitor1, teclado2, raton1);
 
 console.log(computadora1.toString());
+console.log(computadora2.toString());
+
+let orden1 = new Orden;
+
+orden1.agregarComputadora (computadora1);
+orden1.agregarComputadora (computadora2);
+
+console.log(orden1.toString());
+
+
+let orden2 = new Orden;
+
+orden2.agregarComputadora (computadora2);
+orden2.agregarComputadora (computadora2);
+
+console.log(orden2.toString());
+
 
 
 
